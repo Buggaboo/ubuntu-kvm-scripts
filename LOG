@@ -1,0 +1,26 @@
+LOG 31-07-09
+* Windows xp vm guest's transfer rate is slow like I thought. Iperf proves this.
+* Run 'iperf -c the_server_ip_addr' from the to be tested vm guest, and iperf -s' starts the listener.
+* Fixed the hardcoded crap in my start-*.sh scripts
+* Apparently different nic models influence the ethernet data transfer speed: 
+* Available models from the qemu man page: i82551, i82557b, i82559er, ne2k_pci, ne2k_isa, pcnet, rtl8139,
+  => e1000, smc91c111, lance, mcf_fec and usb
+* Another source says these are available, from the qemu userspace kvm -net,model=?:
+  => i82551 i2557b i82559er ne2k_pci pcnet rtl8139 e1000 virtio
+* Apparently the drivers for model e1000 on windows is excellent, just install those and you're ready to run e1000 on windows.
+* For running x86_64 stuff, it might help to add '-cpu qemu64,-nx'
+
+LOG 30-07-09
+* Download and tried to install windows virtio drivers, then system hung.
+* Now defragmentizing the windows xp image, pointless exercise, but what the hey.
+* Turns out, that the bandwidth transfer speed is not great, gotta use iperf.exe the next time around.
+* You can turn off the graphics by adding a 3rd parameter to the start-....sh scripts, "-nographic 
+
+LOG 29-07-09
+* Got tap devices to load/unload with scripts qemu-ifdown/up.sh
+* Testing hypothesis: static ip of vm guest must be the same as tap device ip address
+=> Fail, no internet! Maybe gateway is wrong. Not 254, but vm host machine's bridge.
+=> Setting gateway to the bridge also does not work.
+=> Next I'll try removing the ip address from the tap device.
+=> Fail, no internet, but local network is online.
+=> Aha! It was the dns, it must be set to the provider's.

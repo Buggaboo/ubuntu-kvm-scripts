@@ -1,0 +1,47 @@
+TODO 30-07-09
++ download iperf on windows guests and test speed that way, search iperf.exe
++ experiment with different virtual nics:
+  + ne2k_pci
+  => vm host/local network
+    => winxp: 6Mbits/s
+    => linux: 14Mbits/s
+  + rtl8139
+  => vm host
+    => winxp: 70-80 Mbits/s
+    => linux: 110-120 Mbits/s
+  => local network:
+    => winxp: 60-80 Mbits/s
+    => linux: 100-120 Mbits/s
+  + e1000
+  => vm host 
+    => linux: 150-200 Mbits/s
+    => winxp: no drivers
+  => local network
+    => linux: 170-200 Mbits/s
+    => winxp: no drivers
+  @ virtio
+  => There are too many to test. e1000 seems to be a good candidate for linux.
+  => 'pcnet' also works out-of-the-box on windows xp, but vm guest 40-50 Mbits/s; local net 50-60 Mbits/s,
+  => 'rtl8139 seems to be good (for now) for windows.
+  => Actually e1000 is apparently better, according to some site, intel has the windows drivers for it.
++ Install windows drivers for e1000 http://www.linux-kvm.com/content/how-do-you-use-e1000-option-windows-guest
+
+TODO 29-07-09
+@ copy paste scripts to wiki
++ does tap0 also require same static ip as vm guest on tap0? -> No.
++ test virtio_eth on tap => crashes the system
+@ write HOWTO on how to use qemu-ifup.sh script => Backed up to gmail e-mail
++ write qemu-ifdown.sh script
+  => remove from bridge: brctl delif br0 tap0
+  => put interface down: ip link set tap0 down
+  => destroy tap0: tunctl -d tap0
+  
+
+TODO 20-07-09
++ install on guests: virtio_eth, also on windows
++ create shell script for launching virtio
+  => kvm [...] -net nic,model=virtio -net user
++ use other keys from the wiki to activate the fucking windows xp image
++ make backup windows xp before doing any "tweakage"
+@ crack windows xp, or make it register the fucking activation key
+=> niet meer nodig, legitiem versie gebruikt

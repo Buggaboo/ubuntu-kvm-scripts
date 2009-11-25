@@ -1,0 +1,9 @@
+README 25-11-09
+
+* install ubuntu
+* make sure the domain name resolver is set in /etc/resolv.conf
+* make sure the 'kvm' and 'kvm-amd/intel' modules are loaded
+* sudo aptitude install uml-utilities
+* setup /etc/networking/interfaces to create a bridge
+* setup /etc/rc.local to create tunnels with the bridge
+* give permissions to users in /etc/sudoers
