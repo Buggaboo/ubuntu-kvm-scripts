@@ -3,7 +3,9 @@ README 25-11-09
 * install ubuntu
 * make sure the domain name resolver is set in /etc/resolv.conf
 * make sure the 'kvm' and 'kvm-amd/intel' modules are loaded
-* sudo aptitude install uml-utilities
+* create group kvm in /etc/group with 'groupadd'
+* give permissions to users in /etc/sudoers to access group kvm
+* make sure when /dev/kvm is chgrped using /etc/udev/rules.d/....rules
+* sudo aptitude install uml-utilities, for tunctl, for tun/tap, it provides an internet connection to the vm guest
 * setup /etc/networking/interfaces to create a bridge
-* setup /etc/rc.local to create tunnels with the bridge
-* give permissions to users in /etc/sudoers
+* setup /etc/rc.local to create tunnels with the bridge and invoke the bridge

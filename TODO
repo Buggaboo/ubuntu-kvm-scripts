@@ -1,5 +1,7 @@
 TODO 25-11-09
 - test README steps
+- sudo chgrp -R user ./etc
+- add ./etc to the github repository
 - figure out how to do live migration
 
 TODO 30-07-09
