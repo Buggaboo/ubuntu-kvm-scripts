@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Achtung baby: This hasn't been tested much.
+
 switch=br0
 
 if [ -z $1 ]; then

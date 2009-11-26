@@ -1,6 +1,8 @@
 #!/bin/sh
 
-set -x
+# Warning: I forgot what the 2nd parameter of this script does..., but it works
+
+#set -e -x
 
 switch=br0
 
