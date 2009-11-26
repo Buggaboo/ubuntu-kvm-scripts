@@ -1,0 +1,39 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+#auto eth0
+#iface eth0 inet dhcp
+
+# The primary network interface
+#auto eth0
+#iface eth0 inet static
+#address 192.168.2.58  # set to the ip you want
+#netmask 255.255.255.0 # typical subnet
+#gateway 192.168.2.254 # where you get your internet
+
+auto eth0
+iface eth0 inet static
+address 192.168.0.222
+netmask 255.255.255.0
+gateway 192.168.0.254
+
+# The bridge for virtual guests on kvm/qemu
+#iface br0 inet static
+#address 192.168.2.111
+#network 192.168.2.0
+#netmask 255.255.255.0
+#broadcast 192.18.2.255
+#gateway 192.168.2.254 # where you get your internet
+#bridge_ports eth0
+
+iface br0 inet static
+address 192.168.0.211
+network 192.168.0.0
+netmask 255.255.255.0
+broadcast 192.18.0.255
+gateway 192.168.0.254
+bridge_ports eth0
