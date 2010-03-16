@@ -1,1 +1,2 @@
+# if /dev/net/tun is missing, then change NAME="%k" to NAME="net/%k"
 KERNEL=="kvm", NAME="%k", GROUP="kvm", MODE="0770"
