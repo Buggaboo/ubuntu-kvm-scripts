@@ -1,3 +1,6 @@
+TODO 01-04-09
+- make udev load virtio-blk etc. when loading kvm module
+
 TODO 25-11-09
 - test README steps
 - sudo chgrp -R user ./etc
