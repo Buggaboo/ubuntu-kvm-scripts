@@ -1,3 +1,7 @@
+LOG 02-04-09
+* Tried booting raw win2k3 image with virtio_blk, stil bsod; drivers are probably not getting picked up, found http://www.linux-kvm.org/page/Boot_from_virtio_block_device
+* Trying new drivers on vm guest for win2k3 from some person called iggy on irc.freenode.net
+
 LOG 25-11-09
 * while testing ./etc/sudoers and mv /etc/sudoers /etc/sudoers.bak, I managed to fuck up the whole system, because root password wasn't set yet. Don't try this on a raid5 machine. Because there is also a chance that your grub will die, after you mount the raid devices as md0 and write on them.
 * command to mount a raid5 system: mdadm --create /dev/md0 --level=5 --raid-devices=5 /dev/sd[a-d]1 /dev/hdc1
