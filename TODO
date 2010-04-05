@@ -1,3 +1,7 @@
+TODO 05-04-09
+- try '-usb -usbdevice tablet'; then mouse will not require click to get sdl focus
++ virtio works on win2k3 and winxp nicely, google 'inurl:theiggy virtio'
+
 TODO 02-04-09
 - optimize system, watch/read/listen:
  http://www.redhat.com/promo/summit/2009/highlights/
