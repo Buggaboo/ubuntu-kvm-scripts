@@ -2,7 +2,7 @@
 
 # Achtung baby: This hasn't been tested much.
 
-switch=br0
+switch=${switch:-br0}
 
 if [ -z $1 ]; then
 	echo "Warning: no device given as a parameter!"

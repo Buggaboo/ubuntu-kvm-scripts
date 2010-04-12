@@ -4,7 +4,7 @@
 
 #set -e -x
 
-switch=br0
+switch=${switch:-br0}
 
 if [ -z "$1" ]; then
        echo "Error: no interface specified"
