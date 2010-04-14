@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -e -x
+#set -e -x
 
 # 1st parameter: $1 -> image.qcow2
 # 2nd parameter: $2 -> tap0..n
@@ -16,11 +16,18 @@ if [ -z "$1" ] ;then
   exit 1
 fi
 
+VIRTIOCDROM=""
 MODEL=$3
 if [ -z "$3" ]; then
   echo "Warning: No nic model set!"
   echo "Warning: Default will be 'e1000'."
   MODEL=e1000
+  if [ "$MODEL" != "virtio" ]; then
+    if [ ! -f "./NetKVM-and-viostor.iso" ]; then
+      $(which wget) -nc -nd -nH http://www.famzah.net/download/kvm/virtio-windows/24.09.2009/NetKVM-and-viostor.iso
+      VIRTIOCDROM=-cdrom ./NetKVM-and-viostor.iso
+    fi
+  fi
 fi
 
 if [ -z "$2" ]; then
@@ -32,10 +39,10 @@ if [ -z "$4" ]; then
   echo "Warning: No extra parameters given to qemu."
 fi
 
-#N=$(echo -n $2 | sed 's/.*\([0-9]\+\)$/\1/')
+#N=$(echo $2 | egrep -o "[a-f0-9]$")
 #MACADDR="DE:AD:BE:EF:$N$N:$N$N"
 #MACADDR=$(`which python` -c "\"from random import choice; print ':'.join([''.join([choice('abcdef1234567890'),choice('abcdef1234567890')]) for i in xrange(8) ])\"")
-MACADDR=$(`which python` -c "from random import choice; print 'DE:AD:BE:EF:'+':'.join([ ''.join([choice('ABCDEF1234567890'),choice('ABCDEF1234567890')]) for i in xrange(2) ])")
+MACADDR=$(`which python` -c "\"from random import choice; print 'DE:AD:BE:EF:'+':'.join([ ''.join([choice('ABCDEF1234567890'),choice('ABCDEF1234567890')]) for i in xrange(2) ])\"")
 
 echo "mac address: $MACADDR"
 
@@ -51,4 +58,5 @@ sudo $KVM -hda $1 -m 1024 -smp 2 $4 \
   -usb \
   -name "`basename $1` $2" \
   -no-quit \
-  -monitor stdio
+  -monitor stdio \
+  $VIRTIOCDROM

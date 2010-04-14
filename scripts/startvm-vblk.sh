@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -e -x
+#set -e -x
 
 # 1st parameter: $1 -> image.qcow2
 # 2nd parameter: $2 -> tap0..n
@@ -33,10 +33,10 @@ if [ -z "$4" ]; then
   echo "Warning: No extra parameters given to qemu."
 fi
 
-#N=$(echo -n $2 | sed 's/.*\([0-9]\+\)$/\1/')
+#N=$(echo $2 | egrep -o "[a-f0-9]$")
 #MACADDR="DE:AD:BE:EF:$N$N:$N$N"
 #MACADDR=$(`which python` -c "\"from random import choice; print ':'.join([''.join([choice('abcdef1234567890'),choice('abcdef1234567890')]) for i in xrange(8) ])\"")
-MACADDR=$(`which python` -c "from random import choice; print 'DE:AD:BE:EF:'+':'.join([ ''.join([choice('ABCDEF1234567890'),choice('ABCDEF1234567890')]) for i in xrange(2) ])")
+MACADDR=$(`which python` -c "\"from random import choice; print 'DE:AD:BE:EF:'+':'.join([ ''.join([choice('ABCDEF1234567890'),choice('ABCDEF1234567890')]) for i in xrange(2) ])\"")
 
 echo "mac address: $MACADDR"
 
