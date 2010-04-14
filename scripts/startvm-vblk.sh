@@ -35,7 +35,7 @@ fi
 
 #N=$(echo $2 | egrep -o "[a-f0-9]$")
 #MACADDR="DE:AD:BE:EF:$N$N:$N$N"
-#MACADDR=$(`which python` -c "\"from random import choice; print ':'.join([''.join([choice('abcdef1234567890'),choice('abcdef1234567890')]) for i in xrange(8) ])\"")
+#MACADDR=$(`which python` -c "from random import choice; print ':'.join([''.join([choice('abcdef1234567890'),choice('abcdef1234567890')]) for i in xrange(8) ])")
 MACADDR=$(`which python` -c "from random import choice; print 'DE:AD:BE:EF:'+':'.join([ ''.join([choice('ABCDEF1234567890'),choice('ABCDEF1234567890')]) for i in xrange(2) ])")
 
 echo "mac address: $MACADDR"
