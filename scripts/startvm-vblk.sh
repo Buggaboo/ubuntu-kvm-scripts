@@ -31,8 +31,10 @@ if [ -z "$4" ]; then
   echo "Warning: No extra parameters given to qemu."
 fi
 
-N=$(echo -n $2 | sed 's/.*\([0-9]\+\)$/\1/')
-MACADDR="DE:AD:BE:EF:$N$N:$N$N"
+#N=$(echo -n $2 | sed 's/.*\([0-9]\+\)$/\1/')
+#MACADDR="DE:AD:BE:EF:$N$N:$N$N"
+MACADDR=$(`which python` -c from random import choice; print ':'.join([''.join([choice('abcdef1234567890'),choice('abcdef1234567890')]) for i in xrange(8) ]))
+
 
 echo "mac address: $MACADDR"
 
@@ -50,3 +52,4 @@ sudo $KVM -drive file=$1,if=virtio,boot=on -m 1024 -smp 2 $4 \
   -no-quit \
   -monitor stdio
   
+
