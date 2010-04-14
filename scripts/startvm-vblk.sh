@@ -40,7 +40,7 @@ MACADDR=$(`which python` -c "\"from random import choice; print 'DE:AD:BE:EF:'+'
 
 echo "mac address: $MACADDR"
 
-KVM=$(which qemu-system-x86_64)
+KVM=$(which kvm)
 if [ -z "$KVM" ]; then
   echo "Error: no qemu available."
   exit 1
