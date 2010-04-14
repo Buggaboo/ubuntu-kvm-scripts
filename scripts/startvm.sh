@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e -x
+
 # 1st parameter: $1 -> image.qcow2
 # 2nd parameter: $2 -> tap0..n
 # 3rd parameter: $3 -> virtual ethernet device
@@ -33,7 +35,7 @@ fi
 #N=$(echo -n $2 | sed 's/.*\([0-9]\+\)$/\1/')
 #MACADDR="DE:AD:BE:EF:$N$N:$N$N"
 #MACADDR=$(`which python` -c "\"from random import choice; print ':'.join([''.join([choice('abcdef1234567890'),choice('abcdef1234567890')]) for i in xrange(8) ])\"")
-MACADDR=$(`which python` -c "\"from random import choice; print "DE:AD:BE:EF:"+':'.join([ ''.join([choice('abcdef1234567890'),choice('abcdef1234567890')]) for i in xrange(2) ])\"")
+MACADDR=$(`which python` -c "from random import choice; print 'DE:AD:BE:EF:'+':'.join([ ''.join([choice('ABCDEF1234567890'),choice('ABCDEF1234567890')]) for i in xrange(2) ])")
 
 echo "mac address: $MACADDR"
 
