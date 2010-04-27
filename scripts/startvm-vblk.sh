@@ -49,7 +49,7 @@ fi
 sudo $KVM -drive file=$1,if=virtio,boot=on -m 1024 -smp 2 $4 \
   -net nic,macaddr=$MACADDR,model=$MODEL \
   -net tap,ifname=$2,script=no \
-  -usb \
+  -usb -usbdevice tablet \
   -name "`basename $1` $2" \
   -no-quit \
   -monitor stdio
