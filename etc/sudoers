@@ -25,6 +25,6 @@ root	ALL=(ALL) ALL
 %admin ALL=(ALL) ALL
 
 # Members of kvm may set the internet pipes as they see fit
-Cmnd_Alias QEMU=/sbin/ifconfig,/sbin/modprobe,/usr/sbin/brctl,/usr/bin/tunctl,/sbin/ip
+Cmnd_Alias QEMU=/sbin/ifconfig,/sbin/modprobe,/usr/sbin/brctl,/usr/bin/tunctl,/sbin/ip,/usr/bin/kvm
 %kvm ALL=NOPASSWD: QEMU
 
