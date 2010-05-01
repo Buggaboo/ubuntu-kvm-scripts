@@ -1,0 +1,17 @@
+... -vnc :N # this runs 0.0.0.0:5900+N
+... -vnc 127.0.0.1:N # this probably is opened up from the inside
+
+If you want an encrypted session try to use vnc over ssh (vnc+ssh).
+
+The canonical syntax would be for ssh port-forwarding would be:
+  ssh -X -L localport:remotehost:remotehostport entrypoint
+
+  for instance:
+  invoke at remotehost via ssh:
+    qemu-x86_64-system ... -vnc :1
+  To get head:
+    ssh -X -L 5901:192.168.254.254:5901 user@resolveme.com
+
+
+
+
