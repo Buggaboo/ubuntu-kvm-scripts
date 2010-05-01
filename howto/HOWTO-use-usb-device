@@ -1,8 +1,8 @@
 From the command line you need the "-usb" and "-usbdevice" options when starting up your virtual machine like so:
 
-qemu-system-x86_64  -m 400 -hda windows.img -usb -usbdevice  host:1234:5678 (the -usb is compulsory)
+"qemu-system-x86_64  -m 400 -hda windows.img -usb -usbdevice host:1234:5678" (the -usb is compulsory)
 
-Go to your monitor using Ctrl-Alt-2 and from within the monitor with your usb device connected run the following command to get the id of your usb device.
+Go to your monitor using "Ctrl-Alt-2" and from within the monitor with your usb device connected run the following command to get the id of your usb device.
 
 (qemu) info usbhost
 

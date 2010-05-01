@@ -2,3 +2,4 @@ Type ctrl+alt+2 to invoke the qemu/kvm monitor.
 
 'info block' gives the device, 'eject ide1-cd0' virtually removes the iso loaded,
 'change ide1-cd0 file-you-want-to-load.iso' loads the iso file.
+'eject ide1-cd0' to unload the iso file.

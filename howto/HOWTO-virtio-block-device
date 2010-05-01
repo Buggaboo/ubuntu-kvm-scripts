@@ -1,3 +1,6 @@
+To load one or multiple virtual drives using the virtio driver, do this:
+"qemu... ... -drive file=$1,if=virtio,boot=on" OR "qemu...-drive file=$1,if=virtio" without the boot option.
+
 sources:
 
 * http://www.linux-kvm.com/content/kvm-gpl-windows-xp-block-driver-update
