@@ -1,5 +1,9 @@
+LOG 01-05-09
+* Virtio block drivers from iggy are shite. Use the ones from linux-kvm.org. Maybe they're good for 7. Haven't had the chance to test yet.
+* Running 3cx voip server software from kvm virtualized windows 2003 server rc2 machine, great with ethernet and virtio block drivers, otherwise unbearable.
+
 LOG 02-04-09
-* Tried booting raw win2k3 image with virtio_blk, stil bsod; drivers are probably not getting picked up, found http://www.linux-kvm.org/page/Boot_from_virtio_block_device
+d* Tried booting raw win2k3 image with virtio_blk, stil bsod; drivers are probably not getting picked up, found http://www.linux-kvm.org/page/Boot_from_virtio_block_device
 * Trying new drivers on vm guest for win2k3 from some person called iggy on irc.freenode.net
 
 LOG 25-11-09

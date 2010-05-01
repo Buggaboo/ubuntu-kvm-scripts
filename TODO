@@ -1,9 +1,9 @@
 TODO 05-04-09
-- try '-usb -usbdevice tablet'; then mouse will not require click to get sdl focus
-+ virtio works on win2k3 and winxp nicely, google 'inurl:theiggy virtio'
++ try '-usb -usbdevice tablet'; then mouse will not require click to get sdl focus
++ virtio works on win2k3 and winxp nicely, google 'inurl:theiggy virtio' => actually, no they don't, in my other test cases.
 
 TODO 02-04-09
-- optimize system, watch/read/listen:
++ optimize system, watch/read/listen:
  http://www.redhat.com/promo/summit/2009/highlights/
  http://www.linux-kvm.org/page/Tuning_KVM
  http://theiggy.com/tmp/virtio-20100228.zip
