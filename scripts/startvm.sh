@@ -39,7 +39,8 @@ if [ -z "$4" ]; then
   echo "Warning: No extra parameters given to qemu."
 fi
 
-MACADDR=$(`which python` -c "from random import choice; print 'DE:AD:BE:EF:' + \"%s%s:%s%s\" % tuple([choice('ABCDEF0123456789') for i in xrange(4)])")
+RANDOMMACADDR=$(`which python` -c "from random import choice; print 'DE:AD:BE:EF:' + \"%s%s:%s%s\" % tuple([choice('ABCDEF0123456789') for i in xrange(4)])")
+MACADDR=${MACADDR:-$RANDOMMACADDR}
 
 echo "mac address: $MACADDR"
 
