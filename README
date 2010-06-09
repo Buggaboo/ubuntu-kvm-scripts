@@ -6,7 +6,7 @@ README 25-11-09
 * create group kvm in /etc/group with 'groupadd' and add your kvm users to the group
 * give permissions to users in /etc/sudoers to access group kvm
 * make sure when /dev/kvm is chgrped using /etc/udev/rules.d/....rules
-* sudo aptitude install uml-utilities, for tunctl, for tun/tap, it provides an internet connection to the vm guest
-* setup /etc/networking/interfaces to create a bridge
+* sudo aptitude install uml-utilities bridge-utils, for tunctl, for tun/tap, it provides an internet connection to the vm guest
+* setup /etc/networking/interfaces to create a bridge, eth0 can be dhcp, the bridge ip address must be static
 * setup /etc/rc.local to create tunnels with the bridge and invoke the bridge
 * copy ./scripts/qemu-*.sh to /usr/local/bin and chgrp kvm /usr/local/bin/qemu* and chmod ug+rwx /usr/local/bin/qemu*
