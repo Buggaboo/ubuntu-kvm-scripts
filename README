@@ -1,5 +1,7 @@
 README 25-11-09
 
+See ./etc first, most of the settings for udev, sudoers, etc. are there.
+
 * install ubuntu
 * make sure the domain name resolver is set in /etc/resolv.conf
 * make sure the 'kvm' and 'kvm-amd/intel' modules are loaded
@@ -9,4 +11,4 @@ README 25-11-09
 * sudo aptitude install uml-utilities bridge-utils, for tunctl, for tun/tap, it provides an internet connection to the vm guest
 * setup /etc/networking/interfaces to create a bridge, eth0 can be dhcp, the bridge ip address must be static
 * setup /etc/rc.local to create tunnels with the bridge and invoke the bridge
-* copy ./scripts/qemu-*.sh to /usr/local/bin and chgrp kvm /usr/local/bin/qemu* and chmod ug+rwx /usr/local/bin/qemu*
+* make a symbolic link (sudo ln -s `pwd`/from-file to-file)  ./scripts/qemu-*.sh to /usr/local/bin and chgrp kvm /usr/local/bin/qemu* and chmod ug+rwx /usr/local/bin/qemu*
